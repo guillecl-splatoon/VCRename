@@ -21,7 +21,9 @@ async def on_ready():
 @client.event
 async def on_voice_state_update(before, after):
 	if before.voice.voice_channel is not after.voice.voice_channel:
+		await client.send_message(client.get_channel('496104544040910860'), "boop!")
 		if len(after.voice.voice_channel.voice_members) == 0:
+			await client.send_message(client.get_channel('496104544040910860'), "booooop!")
 			await discord.VoiceChannel.edit(before.voice.voice_channel,DEFAULT_NAME)
 
 ##@client.event
