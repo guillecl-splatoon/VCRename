@@ -1,18 +1,18 @@
 import discord
 import asyncio
 
-BOT_PREFIX = '='
-TOKEN = 'NDk2NTEwOTMyNDc5MTE1Mjg0.DpRsZQ.xPZPqVxLft6tdhv0LnxNmX004ok'
+BOT_PREFIX = "="
+TOKEN = "NDk2NTEwOTMyNDc5MTE1Mjg0.DpRsZQ.xPZPqVxLft6tdhv0LnxNmX004ok"
 SERVER = '496104544040910858'
 LOG CHANNEL = '496112192488210432'
 VOICE_CHANNELS = ['496118243929620488','496118274908618752']
-DEFAULT_NAME = 'Otros Juegos'
+DEFAULT_NAME = "Otros Juegos"
 
 client = discord.Client()
 
 @client.event
 async def on_message(message):
-	if message.startswith("=ping"):
+	if message.content = "=PING":
 		await client.send_message(message.channel, "PONG!")
 		
 @client.event
