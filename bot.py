@@ -33,7 +33,7 @@ async def on_message(message):
 	if message.content.startswith('=ping'):
         	await client.send_message(message.channel, 'pong')
 	
-	elseif message.content.startswith('=rename'):
+	elif message.content.startswith('=rename'):
 		nombre = parameters.content.split(' ')[1]
 		if message.author.voice.voice_channel in VOICE_CHANNELS:
 			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + parameters
