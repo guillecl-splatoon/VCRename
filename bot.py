@@ -36,7 +36,7 @@ async def ping():
 
 @client.command(pass_context=True)
 async def test(ctx):
-    await client.send_message(client.get_channel('496104544040910860'), "Pong!")
+    await client.send_message(client.get_channel('496104544040910860'), ctx.message.author.display_name)
 
 client.run(TOKEN)
 
