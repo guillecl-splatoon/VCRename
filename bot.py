@@ -6,8 +6,7 @@ import os
 from config import *
 
 ################## START INIT #####################
-Client = discord.Client()
-client = command.Bot(command_prefix = "=")
+client = discord.Client()
 
 def cmd(name, perms, description, *aliases):
     def real_decorator(func):
