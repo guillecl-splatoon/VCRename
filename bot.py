@@ -30,9 +30,9 @@ async def on_ready():
 #			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + nombre
 #			client.get.channel(message.author.voice.voice_channel).name = nombre
 
-@client.command(pass_context=True)
+@client.command()
 async def ping():
-	await client.send_message(client.get_channel('496104544040910860'), print(discord.__version__))
+	await client.send_message(client.get_channel('496104544040910860'), "Pong!")
 
 @client.command(pass_context=True)
 async def test(ctx, arg):
