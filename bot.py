@@ -40,4 +40,5 @@ async def on_voice_state_update(before, after):
 
 
 ###### RUN ######			
-client.start(TOKEN)
+try:
+    client.loop.run_until_complete(client.start(TOKEN))
