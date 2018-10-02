@@ -1,13 +1,9 @@
 import discord
-from discord.ext.commands import Bot
-from discord.ext import commands
 import asyncio
-import os
 from config import *
 
 ################## START INIT #####################
 client = discord.Client()
-bot = command.Bot(command_prefix = "=")
 
 def cmd(name, perms, description, *aliases):
     def real_decorator(func):
@@ -44,4 +40,4 @@ async def on_voice_state_update(before, after):
 
 
 ###### RUN ######			
-Bot.run(TOKEN)
+client.start(TOKEN)
