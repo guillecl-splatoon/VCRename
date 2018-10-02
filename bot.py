@@ -9,8 +9,7 @@ LOG_CHANNEL = '496112192488210432'
 VOICE_CHANNELS = ['496118243929620488','496118274908618752']
 DEFAULT_NAME = "Otros Juegos"
 
-client = discord.Client()
-bot = Bot(command_prefix=BOT_PREFIX)
+client = Bot(command_prefix=BOT_PREFIX)
 
 @client.event
 async def on_ready():
@@ -31,7 +30,7 @@ async def on_ready():
 #			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + nombre
 #			client.get.channel(message.author.voice.voice_channel).name = nombre
 
-@bot.command()
+@client.command()
 async def ping(ctx):
 	await client.send_message(ctx.message.channel, "Pong! " + ctx.author.display_name)
 	
