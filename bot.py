@@ -50,7 +50,7 @@ async def test(ctx, arg):
 
 @client.command(pass_context=True)
 async def test2(ctx, arg):
-	await client.send_message(ctx.message.channel, ' '.join(a) for a in arg)
+	await client.send_message(ctx.message.channel, arg)
 client.run(TOKEN)
 
 ############# BACKUP #############
