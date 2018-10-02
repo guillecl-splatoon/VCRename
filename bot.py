@@ -25,9 +25,10 @@ async def on_voice_state_update(before, after):
 		for channel in client.get_all_channels():
 			if str(channel.type) == "voice":
 				if channel.id in VOICE_CHANNELS:
+					await client.send_message(client.get_channel('496104544040910860'), "1: " + channel.name)
 					if not channel.voice_members:
-						await client.send_message(client.get_channel('496104544040910860'), channel.name)
-						await channel.edit(name=DEFAULT_NAME)
+						await client.send_message(client.get_channel('496104544040910860'), "2: " + channel.name)
+						await client.edit_channel(channel,name=DEFAULT_NAME)
 #			if channel.type == 'voice':
 #				await client.send_message(client.get_channel('496104544040910860'), channel.name)
 #		await client.send_message(before.voice.voice_channel.voice_members)
