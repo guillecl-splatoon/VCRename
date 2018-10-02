@@ -28,6 +28,11 @@ def cmd(name, perms, description, *aliases):
         return func
     return real_decorator
 	
+@client.event
+async def on_message(message):
+	if message.content == "ping":
+		await reply(message, "pong")
+		
 ############# COMMANDS #############
 #@cmd('nombre', [0,0], "```\n{0}Renames a channel.```")
 #async def cmd_rename(message, parameters):
@@ -38,9 +43,9 @@ def cmd(name, perms, description, *aliases):
 #			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + parameters
 #			client.get.channel(message.author.voice.voice_channel).name = parameters			
 	
-@cmd('ping', [0,0], "```\n{0}Ping.```")
-async def cmd_ping(message, parameters):
-	await reply(message, "ping")					  
+#@cmd('ping', [0,0], "```\n{0}Ping.```")
+#async def cmd_ping(message, parameters):
+#	await reply(message, "ping")					  
 
 #@client.event
 #async def on_voice_state_update(before, after):
