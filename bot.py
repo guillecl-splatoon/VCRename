@@ -42,5 +42,7 @@ async def rename(ctx, arg):
 	if VOICE_CHANNELS.has_key(ctx.message.author.voice.voice_channel.id):
 		await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.display_name + " ha cambiado el nombre de la sala " + ctx.message.author.voice.voice_channel.name + " a " + arg)
 		await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
+	else:
+		await client.send_message(client.get_channel('49610454440910860'), "???")		
 
 client.run(TOKEN)
