@@ -5,7 +5,7 @@ from discord.ext.commands import Bot
 BOT_PREFIX = '='
 TOKEN = "NDk2NTEwOTMyNDc5MTE1Mjg0.DpRsZQ.xPZPqVxLft6tdhv0LnxNmX004ok"
 SERVER = '496104544040910858'
-LOG_CHANNEL = '496112192488210432'
+LOG_CHANNEL = '496112152231411722'
 VOICE_CHANNELS = {'496118243929620488' : 1,'496118274908618752' : 2}
 DEFAULT_NAME = "Otros Juegos "
 
@@ -32,13 +32,13 @@ async def ping():
 	await client.send_message(client.get_channel('496104544040910860'), "Pong!")
 
 @client.command(pass_context=True)
-async def test(ctx, arg):
+async def say(ctx, arg):
     await client.send_message(ctx.message.channel, arg)
 
 @client.command(pass_context=True)
 async def rename(ctx, arg):
-	await client.send_message(client.get_channel('496104544040910860'), ctx.message.author.display_name + " ha cambiado el nombre de la sala " + ctx.message.author.voice.voice_channel.name + " a " + arg)
-	await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
+	if ctx.message.author.voice.voice_channel.id in VOICE CHANNELS:
+		await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.display_name + " ha cambiado el nombre de la sala " + ctx.message.author.voice.voice_channel.name + " a " + arg)
+		await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
 	
 client.run(TOKEN)
-
