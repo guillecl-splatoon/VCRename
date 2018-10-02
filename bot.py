@@ -7,7 +7,7 @@ TOKEN = "NDk2NTEwOTMyNDc5MTE1Mjg0.DpRsZQ.xPZPqVxLft6tdhv0LnxNmX004ok"
 SERVER = '496104544040910858'
 LOG_CHANNEL = '496112192488210432'
 VOICE_CHANNELS = ['496118243929620488','496118274908618752']
-DEFAULT_NAME = "Otros Juegos"
+DEFAULT_NAME = "Otros Juegos "
 
 client = Bot(command_prefix=BOT_PREFIX)
 
@@ -21,12 +21,13 @@ async def on_ready():
 @client.event
 async def on_voice_state_update(before, after):
 	if before.voice.voice_channel is not after.voice.voice_channel:
-		await client.send_message(client.get_channel('496104544040910860'),  "boop!")
+		count = 0
 		for channel in client.get_all_channels():
 			if str(channel.type) == "voice":
 				if channel.id in VOICE_CHANNELS:
+					count = count + 1
 					if not channel.voice_members:
-						await client.edit_channel(channel,name=DEFAULT_NAME)
+						await client.edit_channel(channel,name=DEFAULT_NAME + str(count)
 
 @client.command()
 async def ping():
