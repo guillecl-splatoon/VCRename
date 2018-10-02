@@ -17,21 +17,21 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-def cmd(name, perms, description, *aliases):
-    def real_decorator(func):
-        commands[name] = [func, perms, description.format(BOT_PREFIX)]
-        for alias in aliases:
-            if alias not in commands:
-                commands[alias] = [func, perms, "```\nAlias for {0}{1}.```".format(BOT_PREFIX, name)]
-            else:
-                print("ERROR: Cannot assign alias {0} to command {1} since it is already the name of a command!".format(alias, name))
-        return func
-    return real_decorator
+#def cmd(name, perms, description, *aliases):
+#    def real_decorator(func):
+#        commands[name] = [func, perms, description.format(BOT_PREFIX)]
+#        for alias in aliases:
+#            if alias not in commands:
+#                commands[alias] = [func, perms, "```\nAlias for {0}{1}.```".format(BOT_PREFIX, name)]
+#            else:
+#                print("ERROR: Cannot assign alias {0} to command {1} since it is already the name of a command!".format(alias, name))
+#        return func
+#    return real_decorator
 	
-#@client.event
-#async def on_message(message):
-#	if message.content.startswith('=ping'):
-#        	await client.send_message(message.channel, 'pong')
+@client.event
+async def on_message(message):
+	if message.content.startswith('=ping'):
+        	await client.send_message(message.channel, 'pong')
 	
 ############# COMMANDS #############
 #@cmd('nombre', [0,0], "```\n{0}Renames a channel.```")
@@ -43,9 +43,9 @@ def cmd(name, perms, description, *aliases):
 #			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + parameters
 #			client.get.channel(message.author.voice.voice_channel).name = parameters			
 	
-@cmd('ping', [0,0], "```\n{0}Ping.```")
-async def cmd_ping(message, parameters):
-	await reply(message, "ping")					  
+#@cmd('ping', [0,0], "```\n{0}Ping.```")
+#async def cmd_ping(message, parameters):
+#	await reply(message, "ping")					  
 
 #@client.event
 #async def on_voice_state_update(before, after):
