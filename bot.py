@@ -22,15 +22,19 @@ def cmd(name, perms, description, *aliases):
 ################### END INIT ######################
 
 ############# COMMANDS #############
-@cmd('name', [0,0], "```\n{0}Renames a channel.```")
+@cmd('nombre', [0,0], "```\n{0}Renames a channel.```")
 async def cmd_rename(message, parameters):
     if parameters == '':
         return
 	else:
 		if message.author.voice.voice_channel in VOICE_CHANNELS:
-			client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + parameteres
+			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + parameters
 			client.get.channel(message.author.voice.voice_channel).name = parameters			
-			
+	
+@cmd('ping', [0,0], "```\n{0}Ping.```")
+async def cmd_ping(message, parameters):
+	await reply(message, 'ping')					  
+
 @client.event
 async def on_voice_state_update(before, after):
 	if before.voice.voice_channel is not after.voice.voice_channel:
