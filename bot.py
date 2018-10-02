@@ -27,7 +27,7 @@ async def on_voice_state_update(before, after):
 				if channel.id in VOICE_CHANNELS:
 					count = count + 1
 					if not channel.voice_members:
-						await client.edit_channel(channel,name=DEFAULT_NAME + str(count)
+						await client.edit_channel(channel,name=DEFAULT_NAME + str(count))
 
 @client.command()
 async def ping():
