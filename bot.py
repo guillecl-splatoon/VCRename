@@ -48,3 +48,21 @@ async def on_ready():
 ###### RUN ######			
 try:
     client.loop.run_until_complete(client.start(TOKEN))
+finally:
+    try:
+        try:
+            client.loop.run_until_complete(client.logout())
+        except:
+            pass
+        pending = asyncio.Task.all_tasks()
+        gathered = asyncio.gather(*pending)
+        
+	try:
+            gathered.cancel()
+            client.loop.run_until_complete(gathered)
+            gathered.exception()
+        except:
+            pass
+    except:
+        print("Error in cleanup:\n" + traceback.format_exc())
+    client.loop.close()
