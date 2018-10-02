@@ -50,7 +50,7 @@ async def test(ctx, arg):
 
 @client.command(pass_context=True)
 async def rename(ctx, arg):
-	await client.send_message(client.get_channel('496104544040910860'), ctx.author.display_name + "ha cambiado el nombre de la sala " + ctx.author.voice.voice_channel.name + " a " + arg)
+	await client.send_message(client.get_channel('496104544040910860'), ctx.author.display_name)
 	
 client.run(TOKEN)
 
