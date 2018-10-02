@@ -34,10 +34,11 @@ async def on_message(message):
         	await client.send_message(message.channel, 'pong')
 	
 	elif message.content.startswith('=rename'):
-		nombre = message.content.split(' ')[1]
-		if message.author.voice.voice_channel in VOICE_CHANNELS:
-			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + nombre
-			client.get.channel(message.author.voice.voice_channel).name = nombre
+		return
+#		nombre = message.content.split(' ')[1]
+#		if message.author.voice.voice_channel in VOICE_CHANNELS:
+#			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + nombre
+#			client.get.channel(message.author.voice.voice_channel).name = nombre
 ############# COMMANDS #############
 #@cmd('nombre', [0,0], "```\n{0}Renames a channel.```")
 #async def cmd_rename(message, parameters):
