@@ -12,7 +12,7 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
-	if message.content = "=PING":
+	if message.content == "PING":
 		await client.send_message(message.channel, "PONG!")
 		
 @client.event
