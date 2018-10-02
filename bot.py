@@ -40,7 +40,7 @@ async def test(ctx, arg):
 async def rename(ctx, arg):
 	await client.send_message(client.get_channel('496104544040910860'), ctx.message.author.display_name + " ha cambiado el nombre de
 				  la sala " + ctx.message.author.voice.voice_channel.name + " a " + arg)
-	await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
+	await client.edit_channel(client.get_member(ctx.message.author.id).voice.voice_channel,name=arg)
 	
 client.run(TOKEN)
 
