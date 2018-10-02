@@ -1,10 +1,28 @@
 import discord
 import asyncio
-from config import *
 
-################## START INIT #####################
+BOT_PREFIX = '='
+TOKEN = 'NDk2NTEwOTMyNDc5MTE1Mjg0.DpRsZQ.xPZPqVxLft6tdhv0LnxNmX004ok'
+SERVER = '496104544040910858'
+LOG CHANNEL = '496112192488210432'
+VOICE_CHANNELS = ['496118243929620488','496118274908618752']
+DEFAULT_NAME = 'Otros Juegos'
+
 client = discord.Client()
 
+@client.event
+async def on_message(message):
+	if message.startswith("=ping"):
+		await client.send_message(message.channel, "PONG!")
+		
+@client.event
+async def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
+
+client.run(TOKEN)
 #def cmd(name, perms, description, *aliases):
 #    def real_decorator(func):
 #        commands[name] = [func, perms, description.format(BOT_PREFIX)]
@@ -37,32 +55,3 @@ client = discord.Client()
 #	if before.voice.voice_channel is not after.voice.voice_channel:
 #        	if len(before.voice.voice_channel.voice_members) == 0:
 #			before.voice.voice_channel.name = DEFAULT_NAME
-@client.event
-
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-
-###### RUN ######			
-try:
-    client.loop.run_until_complete(client.start(TOKEN))
-finally:
-    try:
-        try:
-            client.loop.run_until_complete(client.logout())
-        except:
-            pass
-        pending = asyncio.Task.all_tasks()
-        gathered = asyncio.gather(*pending)
-        
-	try:
-            gathered.cancel()
-            client.loop.run_until_complete(gathered)
-            gathered.exception()
-        except:
-            pass
-    except:
-        print("Error in cleanup:\n" + traceback.format_exc())
-    client.loop.close()
