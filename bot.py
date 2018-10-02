@@ -32,7 +32,7 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
-	await client.send_message(ctx.message.channel, "Pong! " + ctx.author.display_name)
+	await client.say(ctx.message.channel, "Pong! " + ctx.author.display_name)
 	
 client.run(TOKEN)
 
