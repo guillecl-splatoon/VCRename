@@ -28,18 +28,6 @@ async def on_voice_state_update(before, after):
 					if not channel.voice_members:
 						await client.edit_channel(channel,name=DEFAULT_NAME)
 
-##@client.event
-##async def on_message(message):
-##	if message.content.startswith('=ping'):
-##        	await client.send_message(message.channel, 'pong')
-##
-##	elif message.content.startswith('=rename'):
-##		nombre = message.content.split(' ')[1]
-##		await client.send_message(message.channel, nombre)
-#		if message.author.voice.voice_channel in VOICE_CHANNELS:
-#			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + nombre
-#			client.get.channel(message.author.voice.voice_channel).name = nombre
-
 @client.command()
 async def ping():
 	await client.send_message(client.get_channel('496104544040910860'), "Pong!")
@@ -50,34 +38,9 @@ async def test(ctx, arg):
 
 @client.command(pass_context=True)
 async def rename(ctx, arg):
-	await client.send_message(client.get_channel('496104544040910860'), ctx.message.author.display_name + " ha cambiado el nombre de la sala " + ctx.message.author.voice.voice_channel.name)
+	await client.send_message(client.get_channel('496104544040910860'), ctx.message.author.display_name + " ha cambiado el nombre de
+				  la sala " + ctx.message.author.voice.voice_channel.name + " a " + arg)
+	await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
 	
 client.run(TOKEN)
-
-############# BACKUP #############
-
-#def cmd(name, perms, description, *aliases):
-#    def real_decorator(func):
-#        commands[name] = [func, perms, description.format(BOT_PREFIX)]
-#        for alias in aliases:
-#            if alias not in commands:
-#                commands[alias] = [func, perms, "```\nAlias for {0}{1}.```".format(BOT_PREFIX, name)]
-#            else:
-#                print("ERROR: Cannot assign alias {0} to command {1} since it is already the name of a command!".format(alias, name))
-#        return func
-#    return real_decorator
-
-#@cmd('nombre', [0,0], "```\n{0}Renames a channel.```")
-#async def cmd_rename(message, parameters):
-#    if parameters == '':
-#        return
-#	else:
-#		if message.author.voice.voice_channel in VOICE_CHANNELS:
-#			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + parameters
-#			client.get.channel(message.author.voice.voice_channel).name = parameters			
-
-#@cmd('ping', [0,0], "```\n{0}Ping.```")
-#async def cmd_ping(message, parameters):
-#	await reply(message, "ping")					  
-
 
