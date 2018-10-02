@@ -23,7 +23,7 @@ async def on_voice_state_update(before, after):
 	if before.voice.voice_channel is not after.voice.voice_channel:
 		await client.send_message(client.get_channel('496104544040910860'),  "boop!")
 		for channel in client.get_all_channels():
-			if channel.type == "voice":
+			if channel.type == "Voice":
 				await client.send_message(client.get_channel('496104544040910860'), channel.type)
 #			if channel.type == 'voice':
 #				await client.send_message(client.get_channel('496104544040910860'), channel.name)
