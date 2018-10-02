@@ -46,11 +46,11 @@ async def ping():
 
 @client.command(pass_context=True)
 async def test(ctx, arg):
-    await client.send_message(ctx.message.channel, arg1)
+    await client.send_message(ctx.message.channel, arg)
 
 @client.command(pass_context=True)
 async def test2(ctx, arg):
-	await client.send_message(ctx.message.channel, " ".join(arg1))
+	await client.send_message(ctx.message.channel, " ".join(arg))
 client.run(TOKEN)
 
 ############# BACKUP #############
