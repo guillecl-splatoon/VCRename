@@ -11,11 +11,6 @@ DEFAULT_NAME = "Otros Juegos"
 client = discord.Client()
 
 @client.event
-async def on_message(message):
-	if message.content == "PING":
-		await client.send_message(message.channel, "PONG!")
-		
-@client.event
 async def on_ready():
     print('Logged in as')
     print(client.user.name)
@@ -45,7 +40,7 @@ def cmd(name, perms, description, *aliases):
 	
 @cmd('ping', [0,0], "```\n{0}Ping.```")
 async def cmd_ping(message, parameters):
-	await reply(message, 'ping')					  
+	await reply(message, "ping")					  
 
 #@client.event
 #async def on_voice_state_update(before, after):
