@@ -32,7 +32,7 @@ async def on_ready():
 
 @client.command(pass_context=True)
 async def ping():
-	await client.send_message(client.get_channel('496104544040910860'), "Pong!")
+	await client.send_message(client.get_channel('496104544040910860'), print(discord.__version__))
 
 @client.command(pass_context=True)
 async def test(ctx, arg):
