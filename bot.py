@@ -37,7 +37,8 @@ async def say(ctx, arg):
 
 @client.command(pass_context=True)
 async def rename(ctx, arg):
-	if str(ctx.message.author.voice.id) in VOICE_CHANNELS:
+	await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.voice.voice_channel.id)
+	if str(ctx.message.author.voice.voice_channel.id) in VOICE_CHANNELS:
 		await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.display_name + " ha cambiado el nombre de la sala " + ctx.message.author.voice.voice_channel.name + " a " + arg)
 		await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
 	
