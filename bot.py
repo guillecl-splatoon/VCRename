@@ -27,7 +27,7 @@ async def on_voice_state_update(before, after):
 					if not channel.voice_members:
 						await client.edit_channel(channel,name=DEFAULT_NAME + str(VOICE_CHANNELS[channel.id]))
 
-@client.command()
+@client.command
 async def ping():
 	await client.send_message(client.get_channel('496104544040910860'), "Pong!")
 
@@ -37,7 +37,7 @@ async def say(ctx, arg):
 
 @client.command(pass_context=True)
 async def rename(ctx, arg):
-	await client.send_message(client.get_channel('496104544040910860'), ctx.message.author.voice.voice_channel)
+	await client.send_message(client.get_channel('496104544040910860'), ctx.message.author.voice.voice_channel.id)
 	if str(ctx.message.author.voice.voice_channel.id) in VOICE_CHANNELS:
 		await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.display_name + " ha cambiado el nombre de la sala " + ctx.message.author.voice.voice_channel.name + " a " + arg)
 		await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
