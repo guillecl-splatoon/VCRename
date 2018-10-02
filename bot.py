@@ -38,7 +38,7 @@ async def say(ctx, arg):
 @client.command(pass_context=True)
 async def rename(ctx, arg):
 	if ctx.message.author.voice.voice_channel.id in VOICE_CHANNELS:
-		await client.send_message(client.get_channel('496104544040910860'), str(ctx.message.author.display_name) + " ha cambiado el nombre de la sala " + str(ctx.message.author.voice.voice_channel) + " a " + arg)
+		await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.mention + " ha cambiado el nombre de la sala " + str(ctx.message.author.voice.voice_channel) + " a " + arg)
 		await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
 		
 client.run(TOKEN)
