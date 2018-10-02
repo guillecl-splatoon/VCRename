@@ -26,7 +26,8 @@ async def on_voice_state_update(before, after):
 			if str(channel.type) == "voice":
 				if channel.id in VOICE_CHANNELS:
 					if not channel.voice_members:
-						await discord.VoiceChannel.edit(before.voice.voice_channel,DEFAULT_NAME)
+						await client.send_message(client.get_channel('496104544040910860'), channel.name)
+						await discord.VoiceChannel.edit(channel,DEFAULT_NAME)
 #			if channel.type == 'voice':
 #				await client.send_message(client.get_channel('496104544040910860'), channel.name)
 #		await client.send_message(before.voice.voice_channel.voice_members)
