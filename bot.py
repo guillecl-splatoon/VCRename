@@ -31,7 +31,7 @@ async def on_ready():
 #			client.get.channel(message.author.voice.voice_channel).name = nombre
 
 @client.command()
-async def ping(ctx):
+async def ping():
 	await client.send_message(client.get_channel('496104544040910860'), "Pong!")
 	
 client.run(TOKEN)
