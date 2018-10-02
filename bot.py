@@ -35,6 +35,7 @@ async def on_message(message):
 	
 	elif message.content.startswith('=rename'):
 		nombre = message.content.split(' ')[1]
+		await client.send_message(message.channel, nombre)
 		return
 #		if message.author.voice.voice_channel in VOICE_CHANNELS:
 #			await client.send_message(client.get_channel(LOG_CHANNEL), message.author.display_name + "has changed the name of " + client.get_channel(message.author.voice.voice_channel).name + "to " + nombre
