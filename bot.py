@@ -18,6 +18,13 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
+@client.event
+async def on_voice_state_update(before, after):
+	if before.voice.voice_channel is not after.voice.voice_channel:
+       		if len(before.voice.voice_channel.voice_members) == 0:
+			before.voice.voice_channel.name = DEFAULT_NAME
+	return
+
 ##@client.event
 ##async def on_message(message):
 ##	if message.content.startswith('=ping'):
@@ -66,8 +73,4 @@ client.run(TOKEN)
 #async def cmd_ping(message, parameters):
 #	await reply(message, "ping")					  
 
-#@client.event
-#async def on_voice_state_update(before, after):
-#	if before.voice.voice_channel is not after.voice.voice_channel:
-#        	if len(before.voice.voice_channel.voice_members) == 0:
-#			before.voice.voice_channel.name = DEFAULT_NAME
+
