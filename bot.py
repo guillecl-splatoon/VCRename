@@ -4,7 +4,7 @@ from discord.ext.commands import Bot
 
 BOT_PREFIX = '='
 TOKEN = "NDk4MzE4MTc2MDE5NTQ2MTIz.Dpr-pw._rNgc4sCzfovhoHO1caK5gWPSTY"
-LOG_CHANNEL = "351293761642561557"
+LOG_CHANNEL = "496112152231411722"
 VOICE_CHANNELS = {"496118243929620488" : 1,"496118274908618752" : 2}
 DEFAULT_NAME = "Otros Juegos "
 
@@ -37,7 +37,7 @@ async def say(ctx, arg):
 @client.command(pass_context=True)
 async def rename(ctx, arg):
 	if ctx.message.author.voice.voice_channel.id in VOICE_CHANNELS:
-		await client.send_message(client.get_channel('496112152231411722'), ctx.message.author.mention + " ha cambiado el nombre de la sala " + str(ctx.message.author.voice.voice_channel) + " a " + arg)
+		await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.mention + " ha cambiado el nombre de la sala " + str(ctx.message.author.voice.voice_channel) + " a " + arg)
 		await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
 		
 client.run(TOKEN)
