@@ -1,12 +1,7 @@
 import discord
 import asyncio
+import config
 from discord.ext.commands import Bot
-
-BOT_PREFIX = '='
-TOKEN = "NDk4MzE4MTc2MDE5NTQ2MTIz.Dpr-pw._rNgc4sCzfovhoHO1caK5gWPSTY"
-LOG_CHANNEL = "351293761642561557"
-VOICE_CHANNELS = {"498324368427057152" : 1}
-DEFAULT_NAME = "Otros Juegos "
 
 client = Bot(command_prefix=BOT_PREFIX)
 
