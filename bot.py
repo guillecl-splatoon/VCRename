@@ -1,6 +1,6 @@
 import discord
 import asyncio
-import config
+from config import *
 from discord.ext.commands import Bot
 
 client = Bot(command_prefix=BOT_PREFIX)
