@@ -23,7 +23,7 @@ async def on_voice_state_update(before, after):
 
 @client.command()
 async def ping():
-	await client.send_message(client.get_channel('496104544040910860'), "Pong!")
+	await client.send_message(ctx.message.channel, "Pong!")
 
 @client.command(pass_context=True)
 async def say(ctx, arg):
