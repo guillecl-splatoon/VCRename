@@ -21,8 +21,8 @@ async def on_voice_state_update(before, after):
 					if not channel.voice_members:
 						await client.edit_channel(channel,name=DEFAULT_NAME + str(VOICE_CHANNELS[channel.id]))
 
-@client.command()
-async def ping():
+@client.command(pass_context=True)
+async def ping(ctx):
 	await client.send_message(ctx.message.channel, "Pong!")
 
 @client.command(pass_context=True)
