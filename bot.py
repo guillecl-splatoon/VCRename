@@ -28,7 +28,7 @@ async def ping(ctx):
 
 @client.command(pass_context=True)
 async def say(ctx, arg):
-	if ctx.message.author.id = OWNED_ID:
+	if ctx.message.author.id = OWNER_ID:
     		await client.send_message(ctx.message.channel, arg)
 
 @client.command(pass_context=True)
