@@ -23,12 +23,12 @@ async def on_voice_state_update(before, after):
 
 @client.command(pass_context=True)
 async def ping(ctx):
-	if ctx.message.author.id = OWNER_ID:
+	if ctx.message.author.id == OWNER_ID:
 		await client.send_message(ctx.message.channel, "Pong!")
 
 @client.command(pass_context=True)
 async def say(ctx, arg):
-	if ctx.message.author.id = OWNER_ID:
+	if ctx.message.author.id == OWNER_ID:
     		await client.send_message(ctx.message.channel, arg)
 
 @client.command(pass_context=True)
