@@ -34,7 +34,9 @@ async def say(ctx, arg):
 @client.command(pass_context=True)
 async def rename(ctx, arg):
 	if ctx.message.author.voice.voice_channel.id in VOICE_CHANNELS:
-		await client.send_message(client.get_channel(LOG_CHANNEL), ctx.message.author.mention + " ha cambiado el nombre de la sala " + str(ctx.message.author.voice.voice_channel) + " a " + arg)
+		embed = discord.Embed(title="Tile", description="Desc", color=0xfce016)
+        	embed.add_field(name="Field1", value="ctx.message.author.mention + " ha cambiado el nombre de la sala " + str(ctx.message.author.voice.voice_channel) + " a " + arg", inline=False)
+		await client.send_message(client.get_channel(LOG_CHANNEL), embed=embed)
 		await client.edit_channel(ctx.message.author.voice.voice_channel,name=arg)
 		
 client.run(TOKEN)
